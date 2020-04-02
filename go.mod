@@ -1,4 +1,4 @@
-module repeated-substr
+module substring-comp
 
 go 1.13
 

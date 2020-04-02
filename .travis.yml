@@ -3,7 +3,7 @@ language: go
 go: 1.13.x
 
 script:
-  - go get -u
+  - go mod download
   - go test ./...
 
 notifications:

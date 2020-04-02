@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/repeated-substr.iml" filepath="$PROJECT_DIR$/.idea/repeated-substr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../substring-comp/.idea/substring-comp.iml" filepath="$PROJECT_DIR$/../substring-comp/.idea/substring-comp.iml" />
     </modules>
   </component>
 </project>
