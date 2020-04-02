@@ -1,0 +1,10 @@
+language: go
+
+go: 1.13.x
+
+script:
+  - go get -u
+  - go test ./...
+
+notifications:
+  email: false
