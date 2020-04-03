@@ -5,35 +5,69 @@ import (
 	"testing"
 )
 
-func TestIsOverlapConst(t *testing.T) {
+func TestIsOverlapQuicker(t *testing.T) {
+	assert.False(t, IsOverlapQuicker("ABA"))
+}
+
+func TestIsOverlapQuicker1(t *testing.T) {
+	assert.True(t, IsOverlapQuicker("ABCDEABDPKMABBAB"))
+}
+
+func TestIsOverlapQuicker2(t *testing.T) {
+	assert.False(t, IsOverlapQuicker("ABCDEABDPKMABBCDEABDPKMABBCDEABDPKMAB"))
+}
+
+func TestIsOverlapQuicker3(t *testing.T) {
+	assert.True(t, IsOverlapQuicker("ACBCDEBDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPBAKMABCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABB"))
+}
+
+func BenchmarkIsOverlapQuicker1(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		IsOverlapQuicker("ABCDEABDPKMABBAB")
+	}
+}
+
+func BenchmarkIsOverlapQuicker2(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		IsOverlapQuicker("ABCDEABDPKMABBCDEABDPKMABBCDEABDPKMAB")
+	}
+}
+
+func BenchmarkIsOverlapQuicker3(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		IsOverlapQuicker("ACBCDEBDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPBAKMABCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABB")
+	}
+}
+
+func TestIsOverlap(t *testing.T) {
 	assert.False(t, IsOverlap("ABA"))
 }
 
-func TestIsOverlapConst1(t *testing.T) {
+func TestIsOverlap1(t *testing.T) {
 	assert.True(t, IsOverlap("ABCDEABDPKMABBAB"))
 }
 
-func TestIsOverlapConst2(t *testing.T) {
+func TestIsOverlap2(t *testing.T) {
 	assert.False(t, IsOverlap("ABCDEABDPKMABBCDEABDPKMABBCDEABDPKMAB"))
 }
 
-func TestIsOverlapConst3(t *testing.T) {
+func TestIsOverlap3(t *testing.T) {
 	assert.True(t, IsOverlap("ACBCDEBDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPBAKMABCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABB"))
 }
 
-func BenchmarkIsOverlapConst1(b *testing.B) {
+func BenchmarkIsOverlap1(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		IsOverlap("ABCDEABDPKMABBAB")
 	}
 }
 
-func BenchmarkIsOverlapConst2(b *testing.B) {
+func BenchmarkIsOverlap2(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		IsOverlap("ABCDEABDPKMABBCDEABDPKMABBCDEABDPKMAB")
 	}
 }
 
-func BenchmarkIsOverlapConst3(b *testing.B) {
+func BenchmarkIsOverlap3(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		IsOverlap("ACBCDEBDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPBAKMABCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABBCDEABDPKMABB")
 	}
